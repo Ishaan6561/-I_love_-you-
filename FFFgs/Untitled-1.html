@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Boarding Call for AANYA ❤️✈️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff8ec7,#ff5fa2,#ffb6d9);
+    position:relative;
+}
+
+/* Background Glow */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#ffffff55,transparent 60%),
+    rgba(255,105,180,.15);
+}
+
+/* Flying Plane */
+.plane{
+    position:absolute;
+    font-size:70px;
+    top:70px;
+    left:-200px;
+    animation:fly 12s linear infinite;
+    z-index:2;
+}
+
+@keyframes fly{
+0%{left:-250px;}
+100%{left:110%;}
+}
+
+/* Clouds */
+.cloud{
+    position:absolute;
+    font-size:70px;
+    opacity:.6;
+    animation:cloud 35s linear infinite;
+}
+
+.cloud:nth-child(2){
+    top:120px;
+    animation-duration:45s;
+}
+
+.cloud:nth-child(3){
+    top:250px;
+    animation-duration:55s;
+}
+
+@keyframes cloud{
+from{left:-200px;}
+to{left:120%;}
+}
+
+/* Card */
+
+.card{
+    position:relative;
+    z-index:5;
+    width:90%;
+    max-width:720px;
+    padding:45px;
+    text-align:center;
+    background:rgba(255,255,255,.22);
+    backdrop-filter:blur(18px);
+    border-radius:30px;
+    border:2px solid rgba(255,255,255,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    color:white;
+}
+
+h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.name{
+    color:#fff5b1;
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+p{
+    font-size:21px;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:35px;
+    position:relative;
+    height:90px;
+}
+
+button{
+    padding:16px 40px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:20px;
+    transition:.3s;
+    font-weight:bold;
+}
+
+#yes{
+    background:#ff2f7d;
+    color:white;
+}
+
+#yes:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #ff2f7d;
+}
+
+#no{
+    background:white;
+    color:#ff2f7d;
+    position:absolute;
+    left:60%;
+}
+
+#message{
+    margin-top:25px;
+    font-size:28px;
+}
+
+/* Hearts */
+.heart{
+    position:absolute;
+    font-size:22px;
+    animation:float 8s linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120vh);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="plane">✈️</div>
+
+<div class="cloud">☁️</div>
+<div class="cloud">☁️</div>
+
+<div class="card">
+
+<h1>💖 Final Boarding Call 💖</h1>
+
+<h2>Passenger: <span class="name">AANYA</span> ✈️</h2>
+
+<p>
+
+🎙️ <b>Captain Speaking...</b><br><br>
+
+Attention Miss <b class="name">AANYA</b>,<br>
+
+Flight <b>LOVE-001</b> is now boarding.<br>
+
+Destination:
+<b>Forever Together ❤️</b><br><br>
+
+Your seat beside me has been reserved forever.<br>
+
+The engines are running,<br>
+the crew is waiting,<br>
+and the only thing missing is...
+
+<b>YOU ❤️</b>
+
+<br><br>
+
+<b>Will you board this beautiful journey with me, AANYA?</b>
+
+</p>
+
+<div class="buttons">
+
+<button id="yes">YES ❤️</button>
+
+<button id="no">NO 😜</button>
+
+</div>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+// Floating Hearts
+for(let i=0;i<35;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["💖","💕","💗","❤️"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+
+heart.style.fontSize=(18+Math.random()*18)+"px";
+
+document.body.appendChild(heart);
+
+}
+
+// Moving NO Button
+
+const no=document.getElementById("no");
+
+document.addEventListener("mousemove",(e)=>{
+
+const rect=no.getBoundingClientRect();
+
+const distance=Math.hypot(
+
+e.clientX-(rect.left+60),
+
+e.clientY-(rect.top+20)
+
+);
+
+if(distance<120){
+
+no.style.left=Math.random()*75+"%";
+
+no.style.top=Math.random()*60+"px";
+
+}
+
+});
+
+// YES
+
+document.getElementById("yes").onclick=function(){
+
+document.getElementById("message").innerHTML=`
+
+<h2 style="color:#fff5b1;">
+
+🎉 Boarding Confirmed, AANYA! 🎉
+
+</h2>
+
+<p>
+
+❤️ Welcome aboard Flight LOVE-001 ❤️
+
+<br><br>
+
+Captain's Announcement:
+
+<br><br>
+
+Dear <b>AANYA</b>,<br>
+
+Thank you for accepting this journey.
+
+From today onwards,
+
+every destination,
+
+every sunset,
+
+every smile,
+
+and every dream...
+
+will be shared together.
+
+✈️❤️
+
+<br><br>
+
+<b>Destination: Forever Together 💖</b>
+
+</p>
+
+`;
+
+confetti();
+
+}
+
+// Confetti
+
+function confetti(){
+
+for(let i=0;i<250;i++){
+
+let c=document.createElement("div");
+
+c.innerHTML=["❤️","💖","💕","✨","🎉","✈️"][Math.floor(Math.random()*6)];
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-30px";
+
+c.style.fontSize=(18+Math.random()*22)+"px";
+
+c.style.transition="5s linear";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.style.top="110vh";
+
+c.style.transform="rotate(720deg)";
+
+},20);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5200);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
